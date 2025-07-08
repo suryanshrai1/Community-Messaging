@@ -5,6 +5,13 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
+export type Profile = {
+  id: string
+  email: string
+  display_name: string
+  created_at: string
+}
+
 export type Message = {
   id: string
   user_id: string
@@ -12,6 +19,7 @@ export type Message = {
   created_at: string
   profiles?: {
     email: string
+    display_name: string
   }
 }
 

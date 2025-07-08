@@ -5,6 +5,7 @@ import type React from "react"
 import { createContext, useContext, useEffect, useState } from "react"
 import type { User } from "@supabase/supabase-js"
 import { supabase } from "@/lib/supabase"
+import { ensureUserProfile } from "@/lib/profile-utils"
 
 type AuthContextType = {
   user: User | null
@@ -25,6 +26,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null)
       setLoading(false)
+
+      // Ensure profile exists for existing user
+      if (session?.user) {
+        ensureUserProfile(session.user.id, session.user.email || "")
+      }
     })
 
     // Listen for auth changes
@@ -33,6 +39,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     } = supabase.auth.onAuthStateChange(async (event, session) => {
       setUser(session?.user ?? null)
       setLoading(false)
+
+      // Ensure profile exists when user signs in
+      if (session?.user && event === "SIGNED_IN") {
+        ensureUserProfile(session.user.id, session.user.email || "")
+      }
     })
 
     return () => subscription.unsubscribe()
@@ -54,24 +65,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         return { error }
       }
 
-      // If user was created successfully, create their profile manually
+      // If user was created successfully, ensure their profile exists
       if (data.user) {
-        try {
-          const { error: profileError } = await supabase.from("profiles").insert([
-            {
-              id: data.user.id,
-              email: data.user.email,
-            },
-          ])
-
-          if (profileError) {
-            console.error("Profile creation error:", profileError)
-            // Don't fail the signup if profile creation fails
-          }
-        } catch (profileErr) {
-          console.error("Profile creation exception:", profileErr)
-          // Don't fail the signup if profile creation fails
-        }
+        await ensureUserProfile(data.user.id, data.user.email || "")
       }
 
       // If signup is successful but user needs to confirm email

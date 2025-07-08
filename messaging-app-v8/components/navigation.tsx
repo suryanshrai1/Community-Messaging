@@ -4,7 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { useAuth } from "@/contexts/auth-context"
-import { MessageSquare, Home, User, Blocks, LogOut } from "lucide-react"
+import { MessageSquare, Home, User, Blocks, LogOut, Settings } from "lucide-react"
 
 export function Navigation() {
   const { user, signOut } = useAuth()
@@ -67,6 +67,17 @@ export function Navigation() {
                 >
                   <User className="h-4 w-4" />
                   <span>My Messages</span>
+                </Button>
+              </Link>
+
+              <Link href="/profile">
+                <Button
+                  variant={isActive("/profile") ? "default" : "ghost"}
+                  size="sm"
+                  className="flex items-center space-x-2"
+                >
+                  <Settings className="h-4 w-4" />
+                  <span>Profile</span>
                 </Button>
               </Link>
 

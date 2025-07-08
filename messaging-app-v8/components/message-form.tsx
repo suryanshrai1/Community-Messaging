@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { supabase } from "@/lib/supabase"
 import { useAuth } from "@/contexts/auth-context"
+import { ensureUserProfile } from "@/lib/profile-utils"
 
 type MessageFormProps = {
   onMessageSubmitted?: () => void
@@ -32,17 +33,10 @@ export function MessageForm({ onMessageSubmitted }: MessageFormProps) {
     setError("")
 
     try {
-      // First, ensure user profile exists
-      const { data: profile } = await supabase.from("profiles").select("id").eq("id", user.id).single()
-
-      if (!profile) {
-        // Create profile if it doesn't exist
-        await supabase.from("profiles").insert([
-          {
-            id: user.id,
-            email: user.email,
-          },
-        ])
+      // Ensure profile exists before posting message
+      const profileExists = await ensureUserProfile(user.id, user.email || "")
+      if (!profileExists) {
+        throw new Error("Failed to create or verify user profile")
       }
 
       // Insert the message

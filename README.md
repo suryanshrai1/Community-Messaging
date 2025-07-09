@@ -1,4 +1,4 @@
-# 🚀 MessageBoard - Full-Stack Messaging App with Blockchain
+# 🚀 Community Messaging - Full-Stack Messaging App with Blockchain
 
 A modern, minimal messaging application built with **Next.js**, **Supabase**, and **blockchain integration**. Users can register, authenticate, post messages, manage profiles, and explore a demonstration blockchain that hashes and stores messages.
 
@@ -6,6 +6,9 @@ A modern, minimal messaging application built with **Next.js**, **Supabase**, an
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+### Deployment link(live demo)
+- **https://community-messaging.vercel.app/
 
 ## ✨ Features
 
@@ -51,8 +54,8 @@ A modern, minimal messaging application built with **Next.js**, **Supabase**, an
 
 ### 1. Clone the Repository
 \`\`\`bash
-git clone https://github.com/suryanshrai1/Community-Messaging-App.git
-cd messageboard-blockchain
+git clone https://github.com/suryanshrai1/Community-Messaging.git
+cd Community Messaging-blockchain
 \`\`\`
 
 ### 2. Install Dependencies
@@ -182,7 +185,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser! 🎉
 ## 🏗️ Project Structure
 
 \`\`\`
-messageboard-blockchain/
+Community Messaging-blockchain/
 ├── 📁 app/                    # Next.js App Router
 │   ├── 📁 api/blockchain/     # Blockchain API endpoints
 │   ├── 📄 blockchain/page.tsx # Blockchain explorer
@@ -325,8 +328,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 - 📧 **Email**: your-email@example.com
-- 🐛 **Issues**: [GitHub Issues](https://github.com/suryanshrai1/Community-Messaging-App/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/suryanshrai1/Community-Messaging-App/discussions)
+- 🐛 **Issues**: [GitHub Issues](https://github.com/suryanshrai1/Community-Messaging/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/suryanshrai1/Community-Messaging/discussions)
 
 ---
 

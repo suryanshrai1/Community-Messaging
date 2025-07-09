@@ -20,7 +20,7 @@ export function Navigation() {
             <div className="flex items-center">
               <Link href="/" className="flex items-center space-x-2">
                 <MessageSquare className="h-6 w-6" />
-                <span className="font-bold text-xl">MessageBoard</span>
+                <span className="font-bold text-xl">Community Messaging</span>
               </Link>
             </div>
             <div className="flex items-center space-x-4">
@@ -44,7 +44,7 @@ export function Navigation() {
           <div className="flex items-center space-x-8">
             <Link href="/" className="flex items-center space-x-2">
               <MessageSquare className="h-6 w-6" />
-              <span className="font-bold text-xl">MessageBoard</span>
+              <span className="font-bold text-xl">Community Messaging</span>
             </Link>
 
             <div className="flex space-x-4">

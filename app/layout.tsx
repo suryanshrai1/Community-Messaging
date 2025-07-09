@@ -8,7 +8,7 @@ import { Navigation } from "@/components/navigation"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "MessageBoard - Share Your Thoughts",
+  title: "Community Messaging - Share Your Thoughts",
   description: "A minimal messaging app with blockchain integration",
     generator: 'v0.dev'
 }

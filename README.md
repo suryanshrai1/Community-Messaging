@@ -45,14 +45,6 @@ A modern, minimal messaging application built with **Next.js**, **Supabase**, an
 | **Blockchain** | Node.js Crypto, Custom implementation |
 | **Deployment** | Vercel (recommended) |
 
-Here's a complete and properly formatted `README.md` file for your project **Community Messaging (with Supabase and Blockchain support)**:
-
----
-
-````markdown
-# 📨 Community Messaging (Blockchain + Supabase)
-
-A decentralized community messaging application built with **Next.js**, **Supabase**, and **Blockchain support**.
 
 ## 🚀 Quick Start
 

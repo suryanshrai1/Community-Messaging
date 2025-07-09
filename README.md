@@ -8,7 +8,7 @@ A modern, minimal messaging application built with **Next.js**, **Supabase**, an
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 ### Deployment link(live demo)
-- **https://community-messaging.vercel.app/
+- https://community-messaging.vercel.app/
 
 ## ✨ Features
 
@@ -45,45 +45,65 @@ A modern, minimal messaging application built with **Next.js**, **Supabase**, an
 | **Blockchain** | Node.js Crypto, Custom implementation |
 | **Deployment** | Vercel (recommended) |
 
+Here's a complete and properly formatted `README.md` file for your project **Community Messaging (with Supabase and Blockchain support)**:
+
+---
+
+````markdown
+# 📨 Community Messaging (Blockchain + Supabase)
+
+A decentralized community messaging application built with **Next.js**, **Supabase**, and **Blockchain support**.
+
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ installed
-- Supabase account ([sign up here](https://supabase.com))
-- Git for version control
+
+- [Node.js](https://nodejs.org/) v18 or above
+- [Supabase](https://supabase.com) account
+- Git installed
+
+---
 
 ### 1. Clone the Repository
-\`\`\`bash
+
+```bash
 git clone https://github.com/suryanshrai1/Community-Messaging.git
-cd Community Messaging-blockchain
-\`\`\`
+cd Community-Messaging-blockchain
+````
+
+---
 
 ### 2. Install Dependencies
-\`\`\`bash
+
+```bash
 npm install
-\`\`\`
+```
+
+---
 
 ### 3. Set Up Supabase
 
 1. **Create a new Supabase project** at [supabase.com](https://supabase.com)
-2. **Get your credentials** from Settings > API
-3. **Create `.env.local`** in the root directory:
+2. Navigate to `Settings > API` and copy your **Project URL** and **anon/public API key**
+3. Create a file named `.env.local` in the root of the project and paste:
 
-\`\`\`env
+```env
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-\`\`\`
+```
+
+---
 
 ### 4. Set Up the Database
 
-Copy and run this SQL script in your Supabase SQL Editor:
+Copy and paste the following SQL script into the **SQL Editor** of your Supabase project:
 
-\`\`\`sql
--- Step 1: Drop existing tables if any
+```sql
+-- Drop tables if they exist
 DROP TABLE IF EXISTS public.messages CASCADE;
 DROP TABLE IF EXISTS public.profiles CASCADE;
 
--- Step 2: Create profiles table
+-- Create profiles table
 CREATE TABLE public.profiles (
   id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
   email TEXT NOT NULL,
@@ -91,7 +111,7 @@ CREATE TABLE public.profiles (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Step 3: Create messages table
+-- Create messages table
 CREATE TABLE public.messages (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   user_id UUID NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
@@ -99,11 +119,11 @@ CREATE TABLE public.messages (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Step 4: Enable Row Level Security
+-- Enable Row Level Security (RLS)
 ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.messages ENABLE ROW LEVEL SECURITY;
 
--- Step 5: Create RLS policies
+-- RLS Policies
 CREATE POLICY "Enable read access for all users" ON public.profiles FOR SELECT USING (true);
 CREATE POLICY "Enable insert for authenticated users only" ON public.profiles FOR INSERT WITH CHECK (auth.uid() = id);
 CREATE POLICY "Enable update for users based on id" ON public.profiles FOR UPDATE USING (auth.uid() = id);
@@ -113,12 +133,12 @@ CREATE POLICY "Enable insert for authenticated users only" ON public.messages FO
 CREATE POLICY "Enable update for users based on user_id" ON public.messages FOR UPDATE USING (auth.uid() = user_id);
 CREATE POLICY "Enable delete for users based on user_id" ON public.messages FOR DELETE USING (auth.uid() = user_id);
 
--- Step 6: Grant permissions
+-- Grant Permissions
 GRANT USAGE ON SCHEMA public TO anon, authenticated;
 GRANT ALL ON public.profiles TO anon, authenticated;
 GRANT ALL ON public.messages TO anon, authenticated;
 
--- Step 7: Create function for automatic profile creation
+-- Auto-create profile on user signup
 CREATE OR REPLACE FUNCTION public.handle_new_user()
 RETURNS TRIGGER 
 LANGUAGE plpgsql 
@@ -138,18 +158,23 @@ EXCEPTION
 END;
 $$;
 
--- Step 8: Create trigger
 CREATE TRIGGER on_auth_user_created
   AFTER INSERT ON auth.users
   FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
-\`\`\`
+```
+
+---
 
 ### 5. Run the Application
-\`\`\`bash
-npm run dev
-\`\`\`
 
-Open [http://localhost:3000](http://localhost:3000) in your browser! 🎉
+```bash
+npm run dev
+```
+
+Now open your browser at: [http://localhost:3000](http://localhost:3000) 🚀
+
+---
+
 
 ## 📱 Application Flow
 
@@ -327,7 +352,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 📧 **Email**: your-email@example.com
+- 📧 **Email**: raisurya558899@gmail.com
 - 🐛 **Issues**: [GitHub Issues](https://github.com/suryanshrai1/Community-Messaging/issues)
 - 💬 **Discussions**: [GitHub Discussions](https://github.com/suryanshrai1/Community-Messaging/discussions)
 

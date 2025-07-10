@@ -201,34 +201,35 @@ Now open your browser at: [http://localhost:3000](http://localhost:3000) 🚀
 
 ## 🏗️ Project Structure
 
-\`\`\`
+```plaintext
 Community Messaging-blockchain/
-├── 📁 app/                    # Next.js App Router
-│   ├── 📁 api/blockchain/     # Blockchain API endpoints
-│   ├── 📄 blockchain/page.tsx # Blockchain explorer
-│   ├── 📄 dashboard/page.tsx  # User dashboard
-│   ├── 📄 feed/page.tsx       # Public message feed
-│   ├── 📄 login/page.tsx      # Login page
-│   ├── 📄 profile/page.tsx    # Profile management
-│   ├── 📄 register/page.tsx   # Registration page
-│   └── 📄 layout.tsx          # Root layout
-├── 📁 components/             # Reusable components
-│   ├── 📁 ui/                 # shadcn/ui components
-│   ├── 📄 auth-form.tsx       # Authentication forms
-│   ├── 📄 message-form.tsx    # Message composition
-│   ├── 📄 message-list.tsx    # Message display
-│   ├── 📄 navigation.tsx      # Navigation bar
-│   └── 📄 profile-form.tsx    # Profile management
-├── 📁 contexts/               # React contexts
-│   └── 📄 auth-context.tsx    # Authentication state
-├── 📁 lib/                    # Utilities
-│   ├── 📄 blockchain.ts       # Blockchain logic
-│   ├── 📄 profile-utils.ts    # Profile helpers
-│   └── 📄 supabase.ts         # Supabase client
-└── 📁 scripts/                # Database scripts
-    ├── 📄 complete-database-reset.sql
-    └── 📄 verify-setup.sql
-\`\`\`
+├── 📁 app/                    # Next.js App Router  
+│   ├── 📁 api/blockchain/     # Blockchain API endpoints  
+│   ├── 📄 blockchain/page.tsx # Blockchain explorer  
+│   ├── 📄 dashboard/page.tsx  # User dashboard  
+│   ├── 📄 feed/page.tsx       # Public message feed  
+│   ├── 📄 login/page.tsx      # Login page  
+│   ├── 📄 profile/page.tsx    # Profile management  
+│   ├── 📄 register/page.tsx   # Registration page  
+│   └── 📄 layout.tsx          # Root layout  
+├── 📁 components/             # Reusable components  
+│   ├── 📁 ui/                 # shadcn/ui components  
+│   ├── 📄 auth-form.tsx       # Authentication forms  
+│   ├── 📄 message-form.tsx    # Message composition  
+│   ├── 📄 message-list.tsx    # Message display  
+│   ├── 📄 navigation.tsx      # Navigation bar  
+│   └── 📄 profile-form.tsx    # Profile management  
+├── 📁 contexts/               # React contexts  
+│   └── 📄 auth-context.tsx    # Authentication state  
+├── 📁 lib/                    # Utilities  
+│   ├── 📄 blockchain.ts       # Blockchain logic  
+│   ├── 📄 profile-utils.ts    # Profile helpers  
+│   └── 📄 supabase.ts         # Supabase client  
+└── 📁 scripts/                # Database scripts  
+    ├── 📄 complete-database-reset.sql  
+    └── 📄 verify-setup.sql  
+```
+
 
 ## 🔒 Security Features
 
@@ -243,11 +244,11 @@ Community Messaging-blockchain/
 ### Deploy to Vercel (Recommended)
 
 1. **Push to GitHub**
-\`\`\`bash
+```bash
 git add .
 git commit -m "Initial commit"
 git push origin main
-\`\`\`
+````
 
 2. **Connect to Vercel**
 - Visit [vercel.com](https://vercel.com)
@@ -353,3 +354,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **⭐ If you found this project helpful, please give it a star!**
 
 **Built with ❤️ by Suryansh Rai using Next.js, Supabase, and TypeScript**
+

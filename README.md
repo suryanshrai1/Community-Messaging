@@ -43,7 +43,7 @@ A modern, minimal messaging application built with **Next.js**, **Supabase**, an
 | **Frontend** | Next.js 14, TypeScript, Tailwind CSS, shadcn/ui |
 | **Backend** | Supabase (PostgreSQL, Auth, RLS) |
 | **Blockchain** | Node.js Crypto, Custom implementation |
-| **Deployment** | Vercel (recommended) |
+| **Deployment** | Vercel |
 
 
 ## 🚀 Quick Start
@@ -241,7 +241,7 @@ Community Messaging-blockchain/
 
 ## 🚀 Deployment
 
-### Deploy to Vercel (Recommended)
+### Deploy to Vercel
 
 1. **Push to GitHub**
 ```bash
